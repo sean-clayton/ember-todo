@@ -8,7 +8,7 @@ test('should show todos on the homepage', assert => {
   andThen(() => {
     assert.equal(
       currentURL(),
-      '/rentals',
+      '/todos',
       'should redirect to todos automatically'
     );
   });
