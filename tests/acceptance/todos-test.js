@@ -1,9 +1,18 @@
-import { skip } from 'qunit';
+import { test, skip } from 'qunit';
 import moduleForAcceptance from 'ember-todo/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | todos');
 
-skip('should todos on the homepage', () => {});
+test('should show todos on the homepage', assert => {
+  visit('/');
+  andThen(() => {
+    assert.equal(
+      currentURL(),
+      '/rentals',
+      'should redirect to todos automatically'
+    );
+  });
+});
 
 skip('should show count of total items', () => {});
 
