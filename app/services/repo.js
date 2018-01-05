@@ -4,21 +4,26 @@ import uuid from 'uuid/v4';
 const storage = window.localStorage;
 
 export default Service.extend({
-  data: null,
+  todos: null,
+  init() {
+    this._super(...arguments);
+    this.set('todos', JSON.parse(storage.getItem('todos') || '[]'));
+  },
   findAll() {
-    return (
-      this.get('data') ||
-      this.set('data', JSON.parse(storage.getItem('todos') || '[]'))
-    );
+    return this.get('data');
   },
   add(attrs) {
-    const todo = { ...attrs, id: uuid() };
-    this.get('data').pushObject(todo);
+    const todo = Object.assign({}, attrs, { id: uuid() });
+    this.get('todos').pushObject(todo);
     this.persist();
     return todo;
   },
   delete(todo) {
-    this.get('data').removeObject(todo);
+    this.get('todos').removeObject(todo);
+    this.persist();
+  },
+  deleteAll() {
+    this.get('todos').clear();
     this.persist();
   },
   persist() {
