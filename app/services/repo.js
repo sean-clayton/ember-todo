@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'ember-uuid';
 
 const storage = window.localStorage;
 
