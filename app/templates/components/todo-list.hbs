@@ -1,7 +1,7 @@
 {{#if todos.length}}
   <ul class="todo-list">
     {{#each todos as |todo|}}
-      <p>{{todo.description}}</p>
+      <li>{{todo-item todo=todo}}</li>
     {{/each}}
   </ul>
 {{/if}}
