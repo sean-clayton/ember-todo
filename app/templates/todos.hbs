@@ -1,2 +1,6 @@
 <h1>Todo List</h1>
-{{todo-list todos=model}}
+{{#if model.length}}
+  {{todo-list todos=model}}
+{{else}}
+  <h3>No todos!</h3>
+{{/if}}
