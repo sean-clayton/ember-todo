@@ -17,6 +17,9 @@ export default Controller.extend({
   updateTitle(id, newTitle) {
     this.get('repo').edit(id, { title: newTitle });
   },
+  deleteAllTodos() {
+    this.get('repo').deleteAll();
+  },
   actions: {
     handleTodoSubmit(e) {
       e.preventDefault();
@@ -33,6 +36,9 @@ export default Controller.extend({
     },
     updateTodoTitle(id, newTitle) {
       this.updateTitle(id, newTitle);
+    },
+    deleteAllTodos() {
+      this.deleteAllTodos();
     }
   }
 });

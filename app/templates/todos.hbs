@@ -1,5 +1,5 @@
 <h1>Todo List</h1>
-{{todo-actions handleTodoSubmit=(action "handleTodoSubmit")}}
+{{todo-actions handleTodoSubmit=(action "handleTodoSubmit") deleteAllTodos=(action "deleteAllTodos")}}
 {{#if model.length}}
   {{todo-list todos=model updateTodoTitle=(action "updateTodoTitle") handleTodoToggleComplete=(action "handleTodoToggleComplete") handleTodoDelete=(action "handleTodoDelete")}}
 {{else}}
