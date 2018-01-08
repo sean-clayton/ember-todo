@@ -26,6 +26,10 @@ export default Service.extend({
     this.get('todos').clear();
     this.persist();
   },
+  edit(todoId, { title }) {
+    const id = this.get('todos').findIndex(todoId);
+    this.todos[id] = Object.assign({}, this.todos[id], { title });
+  },
   persist() {
     storage.setItem('todos', JSON.stringify(this.get('todos')));
   }

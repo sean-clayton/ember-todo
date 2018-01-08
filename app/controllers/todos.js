@@ -8,6 +8,9 @@ export default Controller.extend({
       title
     });
   },
+  deleteTodo(todo) {
+    this.get('repo').delete(todo);
+  },
   actions: {
     handleTodoSubmit(e) {
       e.preventDefault();
@@ -15,6 +18,9 @@ export default Controller.extend({
       const title = form.todoTitle.value;
       this.addTodo({ title });
       form.reset();
+    },
+    handleTodoDelete(todo) {
+      this.deleteTodo(todo);
     }
   }
 });

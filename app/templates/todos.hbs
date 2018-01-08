@@ -1,7 +1,7 @@
 <h1>Todo List</h1>
 {{todo-actions handleTodoSubmit=(action "handleTodoSubmit")}}
 {{#if model.length}}
-  {{todo-list todos=model}}
+  {{todo-list todos=model handleTodoDelete=(action "handleTodoDelete")}}
 {{else}}
   <h3>No todos!</h3>
 {{/if}}
