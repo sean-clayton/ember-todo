@@ -1,1 +1,6 @@
-{{yield}}
+<div class="todo-actions">
+  <form id="todo-form" onsubmit={{action handleTodoSubmit}}>
+    {{input type="text" name="todoTitle" required="true"}}
+    <button type="submit">Add Todo</button>
+  </form>
+</div>

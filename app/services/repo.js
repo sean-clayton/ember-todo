@@ -10,10 +10,10 @@ export default Service.extend({
     this.set('todos', JSON.parse(storage.getItem('todos') || '[]'));
   },
   findAll() {
-    return this.get('data');
+    return this.get('todos');
   },
-  add(attrs) {
-    const todo = Object.assign({}, attrs, { id: uuid() });
+  add({ title }) {
+    const todo = Object.assign({}, { title, id: uuid() });
     this.get('todos').pushObject(todo);
     this.persist();
     return todo;
@@ -27,6 +27,6 @@ export default Service.extend({
     this.persist();
   },
   persist() {
-    storage.setItem('todos', JSON.stringify(this.get('data')));
+    storage.setItem('todos', JSON.stringify(this.get('todos')));
   }
 });

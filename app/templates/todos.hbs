@@ -1,5 +1,5 @@
 <h1>Todo List</h1>
-{{todo-actions}}
+{{todo-actions handleTodoSubmit=(action "handleTodoSubmit")}}
 {{#if model.length}}
   {{todo-list todos=model}}
 {{else}}
