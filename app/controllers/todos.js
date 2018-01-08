@@ -14,6 +14,9 @@ export default Controller.extend({
   completeTodo(todo) {
     this.get('repo').complete(todo);
   },
+  updateTitle(id, newTitle) {
+    this.get('repo').edit(id, { title: newTitle });
+  },
   actions: {
     handleTodoSubmit(e) {
       e.preventDefault();
@@ -27,6 +30,9 @@ export default Controller.extend({
     },
     handleTodoToggleComplete(todo) {
       this.completeTodo(todo);
+    },
+    updateTodoTitle(id, newTitle) {
+      this.updateTitle(id, newTitle);
     }
   }
 });

@@ -1,3 +1,23 @@
-.todo-item__completed {
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item-title {
+  display: inline-block;
+  min-width: 8em;
+  color: black;
+  padding: 2px;
+  border-width: 1px;
+  border-color: transparent;
+  background: transparent;
+}
+
+.todo-item-title__editable {
+  border-color: rgba(0, 0, 0, 0.333);
+}
+
+.todo-item-title__completed {
   text-decoration: line-through;
 }

@@ -1,5 +1,14 @@
-<div>
+<div class="todo-item">
   <input type="checkbox" checked={{todo.completed}} onchange={{action handleTodoToggleComplete todo}} />
-  <input class="{{if todo.completed "todo-item__completed"}}" disabled="true" readonly="true" value={{todo.title}} />
-  <button onclick={{action handleTodoDelete todo}}>X</button>
+  {{#if editable}}
+  <form style="display: inline-block;" onsubmit={{action "updateTodoTitle"}}>
+    <input name="newTitle" required="true" class="todo-item-title__editable {{if todo.completed (if notEditable "todo-item-title__completed")}} todo-item-title" value="{{todo.title}}" />
+    <button type="submit">Save</button>
+    <button onclick={{action "toggleTodoEditable"}}>Cancel</button>
+  </form>
+  {{else}}
+  <span class="todo-item-title">{{todo.title}}</span>
+  <button onclick={{action "toggleTodoEditable"}}>Edit</button>
+  <button onclick={{action handleTodoDelete todo}}>Delete</button>
+  {{/if}}
 </div>
