@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import { set } from '@ember/object';
 import { v4 as uuid } from 'ember-uuid';
 
 const storage = window.localStorage;
@@ -18,6 +19,9 @@ export default Service.extend({
     this.persist();
     return todo;
   },
+  complete({ id, completed }) {
+    this.edit(id, { completed: !completed });
+  },
   delete(todo) {
     this.get('todos').removeObject(todo);
     this.persist();
@@ -26,9 +30,12 @@ export default Service.extend({
     this.get('todos').clear();
     this.persist();
   },
-  edit(todoId, { title }) {
-    const id = this.get('todos').findIndex(todoId);
-    this.todos[id] = Object.assign({}, this.todos[id], { title });
+  edit(todoId, attrs) {
+    const todo = this.get('todos').findBy('id', todoId);
+    for (let prop in attrs) {
+      set(todo, prop, attrs[prop]);
+    }
+    this.persist();
   },
   persist() {
     storage.setItem('todos', JSON.stringify(this.get('todos')));

@@ -11,6 +11,9 @@ export default Controller.extend({
   deleteTodo(todo) {
     this.get('repo').delete(todo);
   },
+  completeTodo(todo) {
+    this.get('repo').complete(todo);
+  },
   actions: {
     handleTodoSubmit(e) {
       e.preventDefault();
@@ -21,6 +24,9 @@ export default Controller.extend({
     },
     handleTodoDelete(todo) {
       this.deleteTodo(todo);
+    },
+    handleTodoToggleComplete(todo) {
+      this.completeTodo(todo);
     }
   }
 });

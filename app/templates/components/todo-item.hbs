@@ -1,3 +1,5 @@
 <div>
-  <span>{{todo.title}}</span> <button onclick={{action handleTodoDelete todo}}>X</button>
+  <input type="checkbox" checked={{todo.completed}} onchange={{action handleTodoToggleComplete todo}} />
+  <input class="{{if todo.completed "todo-item__completed"}}" disabled="true" readonly="true" value={{todo.title}} />
+  <button onclick={{action handleTodoDelete todo}}>X</button>
 </div>
