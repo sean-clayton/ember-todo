@@ -1,44 +1,25 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-  repo: service(),
-  addTodo({ title }) {
-    this.get('repo').add({
-      title
-    });
-  },
-  deleteTodo(todo) {
-    this.get('repo').delete(todo);
-  },
-  completeTodo(todo) {
-    this.get('repo').complete(todo);
-  },
-  updateTitle(id, newTitle) {
-    this.get('repo').edit(id, { title: newTitle });
-  },
-  deleteAllTodos() {
-    this.get('repo').deleteAll();
-  },
   actions: {
     handleTodoSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const title = form.todoTitle.value;
-      this.addTodo({ title });
+      this.send('addTodo', title);
       form.reset();
     },
     handleTodoDelete(todo) {
-      this.deleteTodo(todo);
+      this.send('deleteTodo', todo.id);
     },
     handleTodoToggleComplete(todo) {
-      this.completeTodo(todo);
+      this.send('toggleCompleted', todo.id);
     },
     updateTodoTitle(id, newTitle) {
-      this.updateTitle(id, newTitle);
+      this.send('changeTodoTitle', id, newTitle);
     },
     deleteAllTodos() {
-      this.deleteAllTodos();
+      this.send('deleteTodos');
     }
   }
 });
