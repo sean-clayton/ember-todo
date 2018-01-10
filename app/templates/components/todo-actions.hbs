@@ -1,9 +1,9 @@
 <div class="todo-actions">
   <form id="todo-form" onsubmit={{action handleTodoSubmit}}>
     {{input type="text" name="todoTitle" required="true" autocomplete="off"}}
-    <button type="submit">Add Todo</button>
+    <button type="submit">{{t "add_todo"}}</button>
   </form>
   <div class="sub-actions">
-    <button onclick={{action deleteAllTodos}}>Delete All Todos</button>
+    <button onclick={{action deleteAllTodos}}>{{t "delete_all_todos"}}</button>
   </div>
 </div>

@@ -1,8 +1,8 @@
-<h1>Todo List</h1>
-<h4>Number of Todos: {{model.length}}</h4>
+<h1>{{t "title"}}</h1>
+<h4>{{t "number_of_todos" count=model.length}}</h4>
 {{todo-actions handleTodoSubmit=(action "handleTodoSubmit") deleteAllTodos=(action "deleteAllTodos")}}
 {{#if model.length}}
   {{todo-list todos=model updateTodoTitle=(action "updateTodoTitle") handleTodoToggleComplete=(action "handleTodoToggleComplete") handleTodoDelete=(action "handleTodoDelete")}}
 {{else}}
-  <h3>No todos!</h3>
+  <h3>{{t "no_todos"}}</h3>
 {{/if}}

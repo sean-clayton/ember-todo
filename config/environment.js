@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
+    defaultLocale: 'en',
     modulePrefix: 'ember-todo',
     environment,
     rootURL: '/',
