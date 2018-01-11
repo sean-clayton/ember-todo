@@ -3,18 +3,13 @@ import moduleForAcceptance from 'ember-todo/tests/helpers/module-for-acceptance'
 
 moduleForAcceptance('Acceptance | todos');
 
-test('should show todos on the homepage', assert => {
+test('should show count of total items', assert => {
+  server.createList('todo', 10);
   visit('/');
-  andThen(() => {
-    assert.equal(
-      currentURL(),
-      '/todos',
-      'should redirect to todos automatically'
-    );
+  andThen(function() {
+    assert.equal(find('h4').text(), '10 Todos');
   });
 });
-
-skip('should show count of total items', () => {});
 
 skip('should be able to add an item to the todo list', () => {});
 
