@@ -2,7 +2,7 @@
   <input type="checkbox" id="{{todo.id}}-checkbox" checked={{todo.completed}} onchange={{action handleTodoToggleComplete todo}} />
   {{#if editable}}
   <form style="display: inline-block;" onsubmit={{action "updateTodoTitle"}}>
-    <input name="newTitle" required="true" class="todo-item-title__editable todo-item-title" value="{{todo.title}}" />
+    <input name="newTitle" required="true" class="todo-item-title__editable todo-item-title" value="{{todo.title}}" autocomplete="off" />
     <button type="submit">{{t "save"}}</button>
     <button onclick={{action "toggleTodoEditable"}}>{{t "cancel"}}</button>
   </form>
