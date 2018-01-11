@@ -1,4 +1,4 @@
-import { test, skip } from 'qunit';
+import { test } from 'qunit';
 import moduleForAcceptance from 'ember-todo/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | todos');
