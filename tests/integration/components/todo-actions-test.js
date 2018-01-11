@@ -8,17 +8,12 @@ moduleForComponent('todo-actions', 'Integration | Component | todo actions', {
 test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('handleTodoSubmit', () => {});
+  this.set('deleteAllTodos', () => {});
 
-  this.render(hbs`{{todo-actions}}`);
+  this.render(
+    hbs`{{todo-actions handleTodoSubmit=handleTodoSubmit deleteAllTodos=deleteAllTodos}}`
+  );
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#todo-actions}}
-      template block text
-    {{/todo-actions}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.todo-actions').length, 1);
 });
