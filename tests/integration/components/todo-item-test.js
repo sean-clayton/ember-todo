@@ -6,19 +6,12 @@ moduleForComponent('todo-item', 'Integration | Component | todo item', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('handleTodoToggleComplete', () => {});
+  this.set('handleTodoDelete', () => {});
 
-  this.render(hbs`{{todo-item}}`);
+  this.render(
+    hbs`{{todo-item handleTodoDelete=handleTodoDelete handleTodoToggleComplete=handleTodoToggleComplete}}`
+  );
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#todo-item}}
-      template block text
-    {{/todo-item}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.todo-item').length, 1);
 });
