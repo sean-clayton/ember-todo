@@ -50,6 +50,3 @@ test('should be able to edit an item from the list', assert => {
     );
   });
 });
-
-// Maybe later
-skip('should be able to sort by date', () => {});
