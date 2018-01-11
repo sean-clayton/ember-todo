@@ -8,7 +8,7 @@
   </form>
   {{else}}
   <label for="{{todo.id}}-checkbox"><span class="todo-item-title {{if todo.completed "todo-item-title__completed"}}">{{todo.title}}</span></label>
-  <button onclick={{action "toggleTodoEditable"}}>{{t "edit"}}</button>
-  <button onclick={{action handleTodoDelete todo}}>{{t "delete"}}</button>
+  <button onclick={{action "toggleTodoEditable"}} class="edit-button">{{t "edit"}}</button>
+  <button onclick={{action handleTodoDelete todo}} class="delete-button">{{t "delete"}}</button>
   {{/if}}
 </div>

@@ -15,7 +15,7 @@ export default Route.extend({
     },
     deleteTodo(id) {
       this.get('store')
-        .findRecord('todo', id)
+        .findRecord('todo', id, { reload: true })
         .then(todo => {
           todo.destroyRecord();
         });
