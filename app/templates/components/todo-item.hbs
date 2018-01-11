@@ -3,8 +3,8 @@
   {{#if editable}}
   <form style="display: inline-block;" onsubmit={{action "updateTodoTitle"}}>
     <input name="newTitle" required="true" class="todo-item-title__editable todo-item-title" value="{{todo.title}}" autocomplete="off" />
-    <button type="submit">{{t "save"}}</button>
-    <button onclick={{action "toggleTodoEditable"}}>{{t "cancel"}}</button>
+    <button type="submit" class="save-button">{{t "save"}}</button>
+    <button onclick={{action "toggleTodoEditable"}} class="cancel-button">{{t "cancel"}}</button>
   </form>
   {{else}}
   <label for="{{todo.id}}-checkbox"><span class="todo-item-title {{if todo.completed "todo-item-title__completed"}}">{{todo.title}}</span></label>

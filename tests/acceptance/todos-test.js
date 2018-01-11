@@ -34,9 +34,22 @@ test('should be able to delete an item from the list', assert => {
   });
 });
 
-skip('should be able to edit an item from the list', () => {});
-
-skip('should be able to search/filter for items in todo list', () => {});
+test('should be able to edit an item from the list', assert => {
+  server.createList('todo', 10);
+  visit('/');
+  click('.todo-list li:nth-child(1) .edit-button');
+  fillIn(
+    '.todo-list li:nth-child(1) form input[name="newTitle"]',
+    'TEST TITLE PLS IGNORE'
+  );
+  click('.todo-list li:nth-child(1) form .save-button');
+  andThen(function() {
+    assert.equal(
+      find('.todo-list li:nth-child(1) span').text(),
+      'TEST TITLE PLS IGNORE'
+    );
+  });
+});
 
 // Maybe later
 skip('should be able to sort by date', () => {});
