@@ -10,3 +10,8 @@ test('it exists', function(assert) {
   let adapter = this.subject();
   assert.ok(adapter);
 });
+
+test('it has an api namespace', function(assert) {
+  const adapter = this.subject();
+  assert.equal(adapter.namespace, 'api');
+});
